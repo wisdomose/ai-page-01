@@ -2,7 +2,7 @@ import './style.css';
 
 const reveals = document.querySelectorAll('.reveal');
 const navLinks = document.querySelectorAll('.nav-link');
-const sections = [...document.querySelectorAll('main section')];
+const sections = [...document.querySelectorAll('main section[id]')];
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -10,12 +10,11 @@ const mobileLinks = document.querySelectorAll('.mobile-link');
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const delay = entry.target.style.getPropertyValue('--delay') || '0ms';
-        entry.target.style.transitionDelay = delay;
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      const delay = entry.target.style.getPropertyValue('--delay') || '0ms';
+      entry.target.style.transitionDelay = delay;
+      entry.target.classList.add('revealed');
+      observer.unobserve(entry.target);
     });
   },
   { threshold: 0.14 }
@@ -75,4 +74,51 @@ setInterval(() => {
     metaEl.textContent = testimonials[quoteIndex].meta;
     quoteEl.classList.remove('opacity-0', 'translate-y-1');
   }, 220);
-}, 4200);
+}, 4600);
+
+const heroPanels = [...document.querySelectorAll('[data-hero-slide]')];
+let heroIndex = 0;
+
+const setHeroSlide = (index) => {
+  heroPanels.forEach((panel, panelIndex) => {
+    panel.classList.toggle('active', panelIndex === index);
+  });
+};
+
+if (heroPanels.length) {
+  setInterval(() => {
+    heroIndex = (heroIndex + 1) % heroPanels.length;
+    setHeroSlide(heroIndex);
+  }, 3600);
+}
+
+const storySteps = [...document.querySelectorAll('[data-story-step]')];
+const storyImages = [...document.querySelectorAll('[data-story-image]')];
+
+const setStoryStage = (index) => {
+  storySteps.forEach((step, stepIndex) => {
+    step.classList.toggle('active', stepIndex === index);
+  });
+  storyImages.forEach((image, imageIndex) => {
+    image.classList.toggle('active', imageIndex === index);
+  });
+};
+
+if (storySteps.length) {
+  const storyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const index = Number(entry.target.getAttribute('data-story-step'));
+        if (Number.isNaN(index)) return;
+        window.requestAnimationFrame(() => setStoryStage(index));
+      });
+    },
+    {
+      threshold: 0.65,
+      rootMargin: '-10% 0px -20% 0px'
+    }
+  );
+
+  storySteps.forEach((step) => storyObserver.observe(step));
+}
