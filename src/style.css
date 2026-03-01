@@ -57,8 +57,7 @@ body {
   @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold transition duration-300 ease-in-out;
 }
 
-.btn-primary {
-  @apply bg-gradient-to-r from-cyan-400 to-lime-400 text-slate-900 shadow-lg shadow-cyan-600/20 hover:scale-105 hover:shadow-xl hover:shadow-cyan-400/40;
+.btn-primary {  @apply bg-gradient-to-r from-cyan-400 to-lime-400 text-slate-900 shadow-lg shadow-cyan-600/20 hover:scale-105 hover:shadow-xl hover:shadow-cyan-400/40;
   animation: pulseGlow 2.8s ease-in-out infinite;
 }
 
