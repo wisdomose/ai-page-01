@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.nav-link {
+  @apply relative text-slate-300 transition-colors duration-200 hover:text-white;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 bg-cyan-300 transition-transform duration-300;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  @apply scale-x-100;
+}
+
+.mobile-menu {
+  @apply max-h-0 overflow-hidden border-t border-white/5 bg-slate-950/95 px-6 opacity-0 transition-all duration-300;
+}
+
+.mobile-menu.open {
+  @apply max-h-72 py-4 opacity-100;
+}
+
+.mobile-link {
+  @apply block rounded-xl px-3 py-2 text-slate-200 transition hover:bg-white/5;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-primary,
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold transition duration-300 ease-in-out;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-cyan-400 to-lime-400 text-slate-900 shadow-lg shadow-cyan-600/20 hover:scale-105 hover:shadow-xl hover:shadow-cyan-400/40;
+  animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+.btn-secondary {
+  @apply border border-white/20 bg-white/5 text-white hover:scale-105 hover:bg-white/10 hover:shadow-lg;
+}
+
+.product-card {
+  @apply relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 shadow-lg shadow-slate-900/40 transition duration-300 hover:-translate-y-1 hover:shadow-cyan-900/40;
+}
+
+.product-image {
+  @apply h-56 w-full object-cover transition duration-300;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.04);
+}
+
+.add-cart {
+  @apply absolute bottom-4 right-4 translate-y-16 rounded-xl bg-cyan-300 px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-900 transition duration-300;
+}
+
+.product-card:hover .add-cart {
+  transform: translateY(0);
+}
+
+.tech-card {
+  @apply rounded-2xl border border-white/10 bg-slate-800/60 p-5 shadow-md shadow-slate-950/40 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/50;
+}
+
+.tech-card h3 {
+  @apply mt-2 text-lg font-semibold text-white;
+}
+
+.tech-card p {
+  @apply mt-2 text-sm text-slate-300;
+}
+
+.tech-icon {
+  @apply inline-flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400/20 text-xl;
+  animation: float 3s ease-in-out infinite;
+}
+
+.testimonial-wrap {
+  @apply rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-xl shadow-slate-900/40 transition duration-300;
+}
+
+#quote {
+  @apply transition duration-300;
+}
+
+.hero-shoe {
+  animation: float 4.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(34, 211, 238, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(34, 211, 238, 0.4);
+  }
+}
