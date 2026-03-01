@@ -1,27 +1,24 @@
 import './style.css';
 
 const reveals = document.querySelectorAll('.reveal');
-const sections = [...document.querySelectorAll('main section')];
 const navLinks = document.querySelectorAll('.nav-link');
-
+const sections = [...document.querySelectorAll('main section')];
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileLinks = document.querySelectorAll('.mobile-link');
 
-const quoteEl = document.getElementById('quote');
-const quoteMetaEl = document.getElementById('quoteMeta');
-
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const delay = entry.target.style.getPropertyValue('--delay') || '0ms';
-      entry.target.style.transitionDelay = delay;
-      entry.target.classList.add('revealed');
-      observer.unobserve(entry.target);
+      if (entry.isIntersecting) {
+        const delay = entry.target.style.getPropertyValue('--delay') || '0ms';
+        entry.target.style.transitionDelay = delay;
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
     });
   },
-  { threshold: 0.15 }
+  { threshold: 0.14 }
 );
 
 reveals.forEach((item) => revealObserver.observe(item));
@@ -36,50 +33,46 @@ const sectionObserver = new IntersectionObserver(
       });
     });
   },
-  { threshold: 0.42 }
+  { threshold: 0.45 }
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
 
 menuToggle?.addEventListener('click', () => {
-  const isOpen = mobileMenu.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  const open = mobileMenu.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(open));
 });
 
 mobileLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-  });
+  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
 });
 
-const quotes = [
+const testimonials = [
   {
-    quote: '“NOVA//01 feels futuristic in motion. Fast, controlled, and absurdly smooth over distance.”',
-    meta: 'K. Rhodes · National 10K Finalist'
+    quote: '“Velocity One feels like it disappears underfoot — pure propulsion from warm-up to final split.”',
+    meta: 'Ari Kim • Marathon Coach'
   },
   {
-    quote: '“The transition is instant. It gives me race-day confidence even in heavy training blocks.”',
-    meta: 'M. Silva · Elite Run Coach'
+    quote: '“The grip and cushion combo is unreal. My tempo sessions are faster with less fatigue.”',
+    meta: 'Jules Carter • Triathlete'
   },
   {
-    quote: '“I came for the look, stayed for the performance. This is premium footwear done right.”',
-    meta: 'A. Patel · Performance Creator'
+    quote: '“Minimal look, maximal performance. Easily the most premium trainer in my rotation.”',
+    meta: 'Nadia Cruz • Running Creator'
   }
 ];
 
 let quoteIndex = 0;
+const quoteEl = document.getElementById('quote');
+const metaEl = document.getElementById('quoteMeta');
 
 setInterval(() => {
-  if (!quoteEl || !quoteMetaEl) return;
-  quoteIndex = (quoteIndex + 1) % quotes.length;
+  quoteIndex = (quoteIndex + 1) % testimonials.length;
   quoteEl.classList.add('opacity-0', 'translate-y-1');
-  quoteMetaEl.classList.add('opacity-0');
 
   setTimeout(() => {
-    quoteEl.textContent = quotes[quoteIndex].quote;
-    quoteMetaEl.textContent = quotes[quoteIndex].meta;
+    quoteEl.textContent = testimonials[quoteIndex].quote;
+    metaEl.textContent = testimonials[quoteIndex].meta;
     quoteEl.classList.remove('opacity-0', 'translate-y-1');
-    quoteMetaEl.classList.remove('opacity-0');
   }, 220);
 }, 4200);
