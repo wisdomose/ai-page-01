@@ -7,9 +7,9 @@
     <title>Velocity One | Move Without Limits</title>
   </head>
   <body class="bg-slate-950 text-slate-100 antialiased">
-    <header id="header" class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-md">
+    <header id="header" class="site-header sticky top-0 z-50 border-b border-white/10 backdrop-blur-md">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#" class="text-lg font-bold tracking-[0.2em] text-white">VELOCITY</a>
+        <a href="#" class="text-lg font-bold tracking-[0.24em] text-white">VELOCITY</a>
         <button id="menuToggle" class="rounded-xl border border-white/20 p-2 text-white md:hidden" aria-label="Open menu">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
@@ -33,23 +33,75 @@
     </header>
 
     <main>
-      <section id="hero" class="relative overflow-hidden px-6 pb-20 pt-16 lg:px-10 lg:pt-24">
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,#22d3ee22,transparent_40%),radial-gradient(circle_at_bottom_left,#22c55e22,transparent_45%)]"></div>
+      <section id="hero" class="hero-shell relative overflow-hidden px-6 pb-20 pt-16 lg:px-10 lg:pt-24">
+        <div class="hero-glow absolute inset-0 -z-10"></div>
         <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <div class="reveal space-y-8">
-            <p class="inline-flex rounded-full border border-cyan-400/40 bg-cyan-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Spring / Summer 2026</p>
-            <h1 class="text-5xl font-black leading-tight text-white sm:text-6xl xl:text-7xl">Move Without Limits.</h1>
-            <p class="max-w-lg text-lg text-slate-300">Engineered with adaptive cushioning, responsive propulsion, and an aerodynamic silhouette built for athletes who train beyond the ordinary.</p>
+            <p class="eyebrow inline-flex rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em]">Atelier Series • 2026</p>
+            <h1 class="text-5xl font-black leading-tight text-white sm:text-6xl xl:text-7xl">Crafted Motion, Elevated Presence.</h1>
+            <p class="max-w-lg text-lg text-slate-300">A premium sneaker collection tuned for precision movement and timeless form, finished in a richer palette with cinema-grade transitions.</p>
             <div class="flex flex-wrap gap-4">
               <a href="#collection" class="btn-primary">Shop Now</a>
-              <a href="#technology" class="btn-secondary">Explore Collection</a>
+              <a href="#technology" class="btn-secondary">Discover Technology</a>
             </div>
           </div>
-          <div class="reveal relative">
-            <div class="pointer-events-none absolute -inset-2 rounded-[28px] bg-gradient-to-br from-cyan-400/30 to-lime-400/20 blur-3xl"></div>
-            <div class="relative overflow-hidden rounded-[24px] border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-cyan-500/20">
-              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80" alt="Velocity One running shoe" loading="eager" width="900" height="700" class="hero-shoe w-full rounded-2xl object-cover" />
-            </div>
+          <div class="reveal relative hero-stage" id="heroStage" aria-live="polite">
+            <div class="hero-ring"></div>
+            <figure class="hero-panel active" data-hero-slide="0">
+              <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80" alt="Velocity Atelier Noir sneaker" loading="eager" width="900" height="700" class="hero-shoe w-full object-cover" />
+              <figcaption>
+                <p class="hero-tag">Atelier Noir</p>
+                <p class="hero-subtag">Silk-knit upper • midnight graphite finish</p>
+              </figcaption>
+            </figure>
+            <figure class="hero-panel" data-hero-slide="1">
+              <img src="https://images.unsplash.com/photo-1605034313761-73ea4a0cfbf3?auto=format&fit=crop&w=1200&q=80" alt="Velocity Aureate Flow sneaker" loading="lazy" width="900" height="700" class="hero-shoe w-full object-cover" />
+              <figcaption>
+                <p class="hero-tag">Aureate Flow</p>
+                <p class="hero-subtag">Champagne highlights • responsive energy core</p>
+              </figcaption>
+            </figure>
+            <figure class="hero-panel" data-hero-slide="2">
+              <img src="https://images.unsplash.com/photo-1603787081207-362bcef7c144?auto=format&fit=crop&w=1200&q=80" alt="Velocity Obsidian Pulse sneaker" loading="lazy" width="900" height="700" class="hero-shoe w-full object-cover" />
+              <figcaption>
+                <p class="hero-tag">Obsidian Pulse</p>
+                <p class="hero-subtag">Carbon plate • featherlight comfort</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-shell px-6 pb-8 lg:px-10">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:gap-12">
+          <div class="story-visual reveal">
+            <figure class="story-image active" data-story-image="0">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1100&q=80" alt="Velocity Atelier Noir profile" class="h-full w-full object-cover" loading="lazy" />
+            </figure>
+            <figure class="story-image" data-story-image="1">
+              <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1100&q=80" alt="Velocity Aureate Flow lifestyle" class="h-full w-full object-cover" loading="lazy" />
+            </figure>
+            <figure class="story-image" data-story-image="2">
+              <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=1100&q=80" alt="Velocity Obsidian Pulse angle" class="h-full w-full object-cover" loading="lazy" />
+            </figure>
+          </div>
+
+          <div class="space-y-14 py-6">
+            <article class="story-step reveal active" data-story-step="0">
+              <p class="story-index">01</p>
+              <h2 class="mt-3 text-3xl font-bold text-white">Atelier Noir enters in silhouette.</h2>
+              <p class="mt-3 text-slate-300">As you move, the shoe fades into full detail with controlled highlights and soft motion to deliver a richer premium reveal.</p>
+            </article>
+            <article class="story-step reveal" data-story-step="1">
+              <p class="story-index">02</p>
+              <h2 class="mt-3 text-3xl font-bold text-white">Aureate accents drift into scene.</h2>
+              <p class="mt-3 text-slate-300">Warm metallic tones and smooth elevation transitions guide the eye naturally across each layer of the design.</p>
+            </article>
+            <article class="story-step reveal" data-story-step="2">
+              <p class="story-index">03</p>
+              <h2 class="mt-3 text-3xl font-bold text-white">Obsidian Pulse closes with precision.</h2>
+              <p class="mt-3 text-slate-300">Text and sneaker visuals synchronize as scroll depth increases, creating a composed, cinematic finish without stutter.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -58,19 +110,19 @@
         <div class="mx-auto max-w-7xl">
           <div class="reveal mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p class="text-sm uppercase tracking-[0.24em] text-cyan-300">Featured Collection</p>
+              <p class="section-kicker text-sm uppercase tracking-[0.24em]">Featured Collection</p>
               <h2 class="mt-3 text-3xl font-bold text-white sm:text-4xl">Performance Meets Precision</h2>
             </div>
-            <a href="#" class="text-sm font-semibold text-cyan-300 transition hover:text-cyan-200">View all drops →</a>
+            <a href="#" class="text-sm font-semibold text-amber-200 transition hover:text-amber-100">View all drops →</a>
           </div>
           <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             <article class="product-card reveal" style="--delay: 0ms">
               <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=80" loading="lazy" width="600" height="500" alt="Velocity Apex Neon" class="product-image" />
               <div class="space-y-2 p-5">
-                <h3 class="text-xl font-semibold text-white">Apex Neon</h3>
+                <h3 class="text-xl font-semibold text-white">Apex Noir</h3>
                 <p class="text-sm text-slate-400">Road Runner Series</p>
                 <div class="flex items-center justify-between">
-                  <span class="text-lg font-bold text-cyan-300">$180</span>
+                  <span class="text-lg font-bold text-amber-200">$180</span>
                   <span class="text-sm text-slate-300">★★★★★</span>
                 </div>
               </div>
@@ -80,10 +132,10 @@
             <article class="product-card reveal" style="--delay: 120ms">
               <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80" loading="lazy" width="600" height="500" alt="Velocity Carbon" class="product-image" />
               <div class="space-y-2 p-5">
-                <h3 class="text-xl font-semibold text-white">Carbon Pulse</h3>
+                <h3 class="text-xl font-semibold text-white">Carbon Royale</h3>
                 <p class="text-sm text-slate-400">Sprint Elite Line</p>
                 <div class="flex items-center justify-between">
-                  <span class="text-lg font-bold text-cyan-300">$220</span>
+                  <span class="text-lg font-bold text-amber-200">$220</span>
                   <span class="text-sm text-slate-300">★★★★☆</span>
                 </div>
               </div>
@@ -93,10 +145,10 @@
             <article class="product-card reveal" style="--delay: 240ms">
               <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=800&q=80" loading="lazy" width="600" height="500" alt="Velocity Drift Pro" class="product-image" />
               <div class="space-y-2 p-5">
-                <h3 class="text-xl font-semibold text-white">Drift Pro</h3>
+                <h3 class="text-xl font-semibold text-white">Drift Atelier</h3>
                 <p class="text-sm text-slate-400">Lifestyle Hybrid</p>
                 <div class="flex items-center justify-between">
-                  <span class="text-lg font-bold text-cyan-300">$165</span>
+                  <span class="text-lg font-bold text-amber-200">$165</span>
                   <span class="text-sm text-slate-300">★★★★★</span>
                 </div>
               </div>
@@ -109,7 +161,7 @@
       <section id="technology" class="px-6 py-20 lg:px-10">
         <div class="mx-auto grid max-w-7xl gap-8 rounded-3xl border border-white/10 bg-slate-900/60 p-8 lg:grid-cols-3">
           <div class="reveal lg:col-span-1">
-            <p class="text-sm uppercase tracking-[0.24em] text-cyan-300">Technology</p>
+            <p class="section-kicker text-sm uppercase tracking-[0.24em]">Technology</p>
             <h2 class="mt-3 text-3xl font-bold text-white">Crafted for Tomorrow's Athlete</h2>
             <p class="mt-4 text-slate-300">Every layer is optimized for speed, comfort, and all-day support with a premium minimalist finish.</p>
           </div>
@@ -140,7 +192,7 @@
 
       <section id="testimonials" class="px-6 py-20 lg:px-10">
         <div class="mx-auto max-w-4xl text-center">
-          <p class="reveal text-sm uppercase tracking-[0.24em] text-cyan-300">Athlete Stories</p>
+          <p class="reveal section-kicker text-sm uppercase tracking-[0.24em]">Athlete Stories</p>
           <h2 class="reveal mt-3 text-3xl font-bold text-white sm:text-4xl">Trusted by Runners Worldwide</h2>
           <div class="testimonial-wrap reveal mt-10">
             <blockquote id="quote" class="text-xl leading-relaxed text-slate-200 sm:text-2xl">“Velocity One feels like it disappears underfoot — pure propulsion from warm-up to final split.”</blockquote>
@@ -150,12 +202,12 @@
       </section>
 
       <section id="newsletter" class="px-6 pb-20 lg:px-10">
-        <div class="mx-auto max-w-7xl rounded-3xl border border-cyan-300/30 bg-gradient-to-br from-cyan-500/20 via-slate-900 to-lime-400/10 p-8 text-center shadow-2xl shadow-cyan-900/30 sm:p-12">
+        <div class="mx-auto max-w-7xl rounded-3xl border border-amber-200/20 bg-gradient-to-br from-amber-200/10 via-slate-900 to-fuchsia-300/10 p-8 text-center shadow-2xl shadow-black/40 sm:p-12">
           <h2 class="reveal text-3xl font-bold text-white sm:text-4xl">Get Early Access to the Next Drop</h2>
           <p class="reveal mx-auto mt-4 max-w-xl text-slate-200">Join the Velocity movement. New releases, exclusive colorways, and athlete-only offers.</p>
           <form class="reveal mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row">
             <label for="email" class="sr-only">Email address</label>
-            <input id="email" type="email" required placeholder="Enter your email" class="w-full rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-white placeholder:text-slate-300 focus:border-cyan-300 focus:outline-none" />
+            <input id="email" type="email" required placeholder="Enter your email" class="w-full rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-white placeholder:text-slate-300 focus:border-amber-200 focus:outline-none" />
             <button class="btn-primary whitespace-nowrap" type="submit">Join Now</button>
           </form>
         </div>
@@ -166,9 +218,9 @@
       <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 text-sm text-slate-400 sm:flex-row">
         <p>© 2026 Velocity One. All rights reserved.</p>
         <div class="flex gap-5">
-          <a href="#" class="hover:text-cyan-300">Instagram</a>
-          <a href="#" class="hover:text-cyan-300">X</a>
-          <a href="#" class="hover:text-cyan-300">YouTube</a>
+          <a href="#" class="hover:text-amber-200">Instagram</a>
+          <a href="#" class="hover:text-amber-200">X</a>
+          <a href="#" class="hover:text-amber-200">YouTube</a>
         </div>
       </div>
     </footer>
